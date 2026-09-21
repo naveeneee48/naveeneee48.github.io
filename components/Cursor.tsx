@@ -1,20 +1,20 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export default function Cursor() {
   const dotRef = useRef<HTMLDivElement | null>(null);
-  const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
     const isFinePointer = window.matchMedia("(pointer: fine)").matches;
     if (!isFinePointer) return;
 
-    setEnabled(true);
-    document.body.classList.add("has-custom-cursor");
-
     const dot = dotRef.current;
     if (!dot) return;
+
+    document.body.classList.add("has-custom-cursor");
+
+    dot.style.opacity = "1";
 
     const handleMove = (e: MouseEvent) => {
       dot.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
@@ -48,13 +48,11 @@ export default function Cursor() {
     };
   }, []);
 
-  if (!enabled) return null;
-
   return (
     <div
       ref={dotRef}
       aria-hidden="true"
-      className="pointer-events-none fixed left-0 top-0 z-[100] h-8 w-8 rounded-full border border-term-cyan bg-transparent shadow-[0_0_18px_2px_rgba(34,211,238,0.55)] transition-[transform,background-color] duration-150 ease-out"
+      className="pointer-events-none fixed left-0 top-0 z-[100] h-8 w-8 rounded-full border border-term-cyan bg-transparent opacity-0 shadow-[0_0_18px_2px_rgba(34,211,238,0.55)] transition-[transform,background-color,opacity] duration-150 ease-out"
     />
   );
 }
