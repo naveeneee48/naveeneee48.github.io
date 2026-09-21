@@ -35,7 +35,7 @@ export default function Home() {
       <Contact />
 
       <footer className="py-6 text-center text-gray-600 text-sm font-mono border-t border-white/5">
-        <p>Built with Next.js, Tailwind, &amp; Three.js</p>
+        <p>&copy; 2026 Naveen Kumar. All rights reserved.</p>
       </footer>
     </main>
   );
