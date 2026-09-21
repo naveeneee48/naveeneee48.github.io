@@ -12,7 +12,6 @@ export function CustomCursor() {
     if (!window.matchMedia("(pointer: fine)").matches) return;
 
     setEnabled(true);
-    document.body.classList.add("has-custom-cursor");
 
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
@@ -27,7 +26,6 @@ export function CustomCursor() {
     window.addEventListener("mouseover", handleMouseOver);
 
     return () => {
-      document.body.classList.remove("has-custom-cursor");
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseover", handleMouseOver);
     };

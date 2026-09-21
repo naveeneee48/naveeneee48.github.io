@@ -95,11 +95,3 @@ body {
 .animate-blink {
   animation: blink 1s step-start infinite;
 }
-
-@media (pointer: fine) {
-  .has-custom-cursor,
-  .has-custom-cursor a,
-  .has-custom-cursor button {
-    cursor: none;
-  }
-}
