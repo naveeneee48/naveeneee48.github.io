@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Terminal } from "@/components/ui/Terminal";
 import { Button } from "@/components/ui/Button";
-import { Send } from "lucide-react";
+import { Send, CheckCircle } from "lucide-react";
 
 const CONTACT_EMAIL = "naveeneee48@gmail.com";
 
@@ -14,6 +14,7 @@ export function Contact() {
     email: "",
     message: "",
   });
+  const [status, setStatus] = useState<"idle" | "opened">("idle");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,6 +23,7 @@ export function Contact() {
     window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
       subject
     )}&body=${encodeURIComponent(body)}`;
+    setStatus("opened");
   };
 
   return (
@@ -44,58 +46,75 @@ export function Contact() {
             title="message.sh"
             className="h-full min-h-[400px] border-neon-blue/50 shadow-[0_0_30px_rgba(0,243,255,0.1)]"
           >
-            <form onSubmit={handleSubmit} className="space-y-4 font-mono text-sm">
-              <div>
-                <label className="block text-neon-blue mb-1">$ input --name</label>
-                <input
-                  type="text"
-                  required
-                  className="w-full bg-transparent border-b border-gray-700 focus:border-neon-blue outline-none py-1 text-gray-300 transition-colors"
-                  placeholder="Enter your name..."
-                  value={formState.name}
-                  onChange={(e) =>
-                    setFormState({ ...formState, name: e.target.value })
-                  }
-                />
+            {status === "opened" ? (
+              <div className="flex flex-col items-center justify-center h-full min-h-[300px] space-y-4 text-neon-green text-center">
+                <CheckCircle className="w-12 h-12" />
+                <p className="font-mono text-lg">Email client opened!</p>
+                <p className="text-xs text-gray-500 max-w-xs">
+                  Your message was pre-filled in a new email &mdash; review it and hit
+                  send from there to actually reach me.
+                </p>
+                <button
+                  onClick={() => setStatus("idle")}
+                  className="text-sm underline hover:text-green-300 mt-4"
+                >
+                  Send another
+                </button>
               </div>
-              <div>
-                <label className="block text-neon-purple mb-1">$ input --email</label>
-                <input
-                  type="email"
-                  required
-                  className="w-full bg-transparent border-b border-gray-700 focus:border-neon-purple outline-none py-1 text-gray-300 transition-colors"
-                  placeholder="Enter your email..."
-                  value={formState.email}
-                  onChange={(e) =>
-                    setFormState({ ...formState, email: e.target.value })
-                  }
-                />
-              </div>
-              <div>
-                <label className="block text-neon-green mb-1">$ input --message</label>
-                <textarea
-                  required
-                  rows={4}
-                  className="w-full bg-transparent border-b border-gray-700 focus:border-neon-green outline-none py-1 text-gray-300 transition-colors resize-none"
-                  placeholder="Type your message..."
-                  value={formState.message}
-                  onChange={(e) =>
-                    setFormState({ ...formState, message: e.target.value })
-                  }
-                />
-              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4 font-mono text-sm">
+                <div>
+                  <label className="block text-neon-blue mb-1">$ input --name</label>
+                  <input
+                    type="text"
+                    required
+                    className="w-full bg-transparent border-b border-gray-700 focus:border-neon-blue outline-none py-1 text-gray-300 transition-colors"
+                    placeholder="Enter your name..."
+                    value={formState.name}
+                    onChange={(e) =>
+                      setFormState({ ...formState, name: e.target.value })
+                    }
+                  />
+                </div>
+                <div>
+                  <label className="block text-neon-purple mb-1">$ input --email</label>
+                  <input
+                    type="email"
+                    required
+                    className="w-full bg-transparent border-b border-gray-700 focus:border-neon-purple outline-none py-1 text-gray-300 transition-colors"
+                    placeholder="Enter your email..."
+                    value={formState.email}
+                    onChange={(e) =>
+                      setFormState({ ...formState, email: e.target.value })
+                    }
+                  />
+                </div>
+                <div>
+                  <label className="block text-neon-green mb-1">$ input --message</label>
+                  <textarea
+                    required
+                    rows={4}
+                    className="w-full bg-transparent border-b border-gray-700 focus:border-neon-green outline-none py-1 text-gray-300 transition-colors resize-none"
+                    placeholder="Type your message..."
+                    value={formState.message}
+                    onChange={(e) =>
+                      setFormState({ ...formState, message: e.target.value })
+                    }
+                  />
+                </div>
 
-              <p className="text-xs text-gray-500">
-                &gt; opens your email client with this pre-filled &mdash; nothing is
-                sent from here directly.
-              </p>
+                <p className="text-xs text-gray-500">
+                  &gt; opens your email client with this pre-filled &mdash; nothing is
+                  sent from here directly.
+                </p>
 
-              <div className="pt-2">
-                <Button type="submit" variant="outline" className="w-full">
-                  Deploy Message <Send className="w-4 h-4" />
-                </Button>
-              </div>
-            </form>
+                <div className="pt-2">
+                  <Button type="submit" variant="outline" className="w-full">
+                    Deploy Message <Send className="w-4 h-4" />
+                  </Button>
+                </div>
+              </form>
+            )}
           </Terminal>
 
           <div className="space-y-6">
