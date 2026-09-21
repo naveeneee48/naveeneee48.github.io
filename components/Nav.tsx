@@ -37,7 +37,7 @@ export function Nav() {
 
         <div className="flex items-center gap-3">
           <a
-            href="/resume/naveenkumar_devops_2025.pdf"
+            href="/resume/naveenkumar_devops_2026.pdf"
             target="_blank"
             rel="noreferrer"
             className="hidden whitespace-nowrap rounded border border-neon-blue px-3 py-1 font-mono text-xs text-neon-blue transition hover:bg-neon-blue hover:text-black sm:inline-block"
@@ -70,7 +70,7 @@ export function Nav() {
             </a>
           ))}
           <a
-            href="/resume/naveenkumar_devops_2025.pdf"
+            href="/resume/naveenkumar_devops_2026.pdf"
             target="_blank"
             rel="noreferrer"
             className="mt-1 rounded border border-neon-blue px-2 py-2 text-center text-neon-blue sm:hidden"
