@@ -6,14 +6,16 @@ const config: Config = {
     extend: {
       colors: {
         term: {
-          bg: "#0a0e0f",
-          panel: "#0f1517",
-          border: "#1f2b2a",
+          bg: "#05070a",
+          panel: "#0d1117",
+          border: "#1c232e",
+          cyan: "#22d3ee",
+          purple: "#a78bfa",
           green: "#39ff88",
-          dim: "#5f7a72",
+          dim: "#8b93a1",
           amber: "#ffb454",
           red: "#ff5f56",
-          text: "#c9d8d3",
+          text: "#e6edf3",
         },
       },
       fontFamily: {

@@ -2,7 +2,7 @@ export default function About() {
   return (
     <section id="about" className="py-20">
       <p className="text-sm text-term-dim">
-        <span className="text-term-green">$</span> cat ./about-me.md
+        <span className="text-term-cyan">$</span> cat ./about-me.md
       </p>
       <h2 className="mt-2 text-2xl font-semibold text-term-text">About Me</h2>
       <div className="mt-6 max-w-3xl space-y-4 text-term-dim">
@@ -20,7 +20,7 @@ export default function About() {
         </p>
         <p>
           I believe in an{" "}
-          <span className="text-term-green">&quot;Automation-First&quot;</span>{" "}
+          <span className="text-term-cyan">&quot;Automation-First&quot;</span>{" "}
           mindset &mdash; if something needs to be done twice, it should be
           scripted once. My passion lies in making infrastructure
           intelligent, ensuring high reliability, fast recovery, and zero

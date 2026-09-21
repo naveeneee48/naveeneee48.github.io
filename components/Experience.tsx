@@ -47,7 +47,7 @@ export default function Experience() {
   return (
     <section id="experience" className="py-20">
       <p className="text-sm text-term-dim">
-        <span className="text-term-green">$</span> git log --experience
+        <span className="text-term-cyan">$</span> git log --experience
       </p>
       <h2 className="mt-2 text-2xl font-semibold text-term-text">
         Experience
@@ -56,7 +56,7 @@ export default function Experience() {
       <div className="mt-8 space-y-10 border-l border-term-border pl-6">
         {roles.map((r) => (
           <div key={r.hash} className="relative">
-            <span className="absolute -left-[29px] top-1 h-3 w-3 rounded-full border-2 border-term-green bg-term-bg" />
+            <span className="absolute -left-[29px] top-1 h-3 w-3 rounded-full border-2 border-term-cyan bg-term-bg" />
             <p className="font-mono text-xs text-term-amber">
               commit {r.hash}
             </p>
@@ -68,7 +68,7 @@ export default function Experience() {
             <ul className="mt-3 space-y-1.5 text-sm text-term-dim">
               {r.bullets.map((b) => (
                 <li key={b} className="flex gap-2">
-                  <span className="shrink-0 text-term-green">+</span>
+                  <span className="shrink-0 text-term-cyan">+</span>
                   <span>{b}</span>
                 </li>
               ))}

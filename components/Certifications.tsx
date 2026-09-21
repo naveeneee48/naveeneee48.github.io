@@ -10,7 +10,7 @@ export default function Certifications() {
   return (
     <section id="certifications" className="py-20">
       <p className="text-sm text-term-dim">
-        <span className="text-term-green">$</span> cat ./certifications.txt
+        <span className="text-term-cyan">$</span> cat ./certifications.txt
       </p>
       <h2 className="mt-2 text-2xl font-semibold text-term-text">
         Certifications
@@ -21,7 +21,7 @@ export default function Certifications() {
             key={c}
             className="flex items-center gap-3 rounded border border-term-border bg-term-panel px-4 py-3 text-sm text-term-dim"
           >
-            <span className="text-term-green">✓</span>
+            <span className="text-term-cyan">✓</span>
             {c}
           </li>
         ))}

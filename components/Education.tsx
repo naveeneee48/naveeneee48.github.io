@@ -2,7 +2,7 @@ export default function Education() {
   return (
     <section id="education" className="py-20">
       <p className="text-sm text-term-dim">
-        <span className="text-term-green">$</span> cat ./education.log
+        <span className="text-term-cyan">$</span> cat ./education.log
       </p>
       <h2 className="mt-2 text-2xl font-semibold text-term-text">
         Education

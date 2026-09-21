@@ -1,23 +1,28 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
 import Image from "next/image";
-
-const ClusterScene = dynamic(() => import("./ClusterScene"), { ssr: false });
+import StarField from "./StarField";
+import TerminalWindow from "./TerminalWindow";
 
 const ROLES = [
-  "Senior DevOps Engineer",
-  "Site Reliability Engineer",
-  "AIOps & Automation Specialist",
-  "Agentic AI Builder",
+  "SENIOR DEVOPS ENGINEER",
+  "SITE RELIABILITY ENGINEER",
+  "AIOPS & AUTOMATION SPECIALIST",
+  "AGENTIC AI BUILDER",
+];
+
+const BOOT_LINES = [
+  "init sequence started",
+  "loading modules...",
+  "verifying integrity...",
 ];
 
 function useTypewriter(
   words: string[],
-  typeSpeed = 70,
-  backSpeed = 35,
-  hold = 1400
+  typeSpeed = 60,
+  backSpeed = 30,
+  hold = 1500
 ) {
   const [text, setText] = useState("");
   const [wordIndex, setWordIndex] = useState(0);
@@ -51,64 +56,99 @@ function useTypewriter(
   return text;
 }
 
+const STATS = [
+  { label: "UPTIME", value: "99.99%" },
+  { label: "AUTOMATION", value: "90%" },
+  { label: "EXPERIENCE", value: "7+ YRS" },
+  { label: "STATUS", value: "AVAILABLE" },
+];
+
 export default function Hero() {
   const typed = useTypewriter(ROLES);
 
   return (
     <section
       id="home"
-      className="relative flex min-h-[85vh] items-center overflow-hidden py-20"
+      className="relative flex min-h-[90vh] items-center overflow-hidden py-20"
     >
-      <div className="pointer-events-none absolute inset-0 -z-10 opacity-30">
-        <ClusterScene />
-      </div>
+      <StarField />
 
-      <div className="grid w-full items-center gap-10 sm:grid-cols-[1fr_auto]">
-        <div className="max-w-2xl">
-          <p className="text-sm text-term-dim">
-            <span className="text-term-green">$</span> whoami
-          </p>
-          <h1 className="mt-4 text-4xl font-bold text-term-text sm:text-5xl">
+      <div className="grid w-full items-center gap-12 lg:grid-cols-[1.1fr_1fr]">
+        <div className="max-w-xl">
+          <div className="mb-6 flex items-center gap-4">
+            <div className="rounded-full border-2 border-term-cyan/50 p-1 shadow-[0_0_25px_-4px_rgba(34,211,238,0.6)]">
+              <Image
+                src="/img/naveen_portfolio.jpg"
+                alt="Naveen Kumar"
+                width={80}
+                height={80}
+                className="rounded-full object-cover"
+                priority
+              />
+            </div>
+            <span className="inline-flex items-center gap-2 rounded-full border border-term-border bg-term-panel px-3 py-1 text-xs text-term-dim">
+              <span className="h-2 w-2 animate-pulse rounded-full bg-term-green" />
+              System Online
+            </span>
+          </div>
+
+          <p className="text-term-cyan">Hello, I&rsquo;m</p>
+          <h1 className="mt-2 text-4xl font-extrabold uppercase tracking-tight text-term-text sm:text-5xl">
             Naveen Kumar
           </h1>
-          <h2 className="mt-3 h-8 text-lg text-term-green sm:text-xl">
+          <h2 className="mt-3 h-10 bg-gradient-to-r from-term-cyan to-term-purple bg-clip-text text-xl font-bold uppercase tracking-tight text-transparent sm:text-2xl">
             {typed}
-            <span className="cursor-blink">_</span>
+            <span className="cursor-blink text-term-cyan">_</span>
           </h2>
-          <p className="mt-6 max-w-xl text-term-dim">
-            Senior DevOps &amp; SRE Engineer with 7+ years building scalable,
-            automated, and self-healing cloud infrastructure across AWS,
-            Azure, and Kubernetes &mdash; combining DevOps, AIOps, and agentic
-            AI to keep systems reliable, fast to recover, and easy to run.
+          <p className="mt-6 text-term-dim">
+            Building scalable, automated, and self-healing cloud
+            infrastructure across AWS, Azure, and Kubernetes &mdash;
+            combining DevOps, AIOps, and agentic AI to keep systems reliable,
+            fast to recover, and easy to run.
           </p>
+
           <div className="mt-8 flex flex-wrap gap-4 text-sm">
             <a
-              href="#contact"
-              className="rounded border border-term-green bg-term-green/10 px-5 py-2 text-term-green transition hover:bg-term-green hover:text-term-bg"
+              href="#projects"
+              className="rounded bg-term-cyan px-6 py-2.5 font-semibold text-term-bg transition hover:opacity-90"
             >
-              ./contact --send
+              View Projects &gt;
             </a>
             <a
-              href="#projects"
-              className="rounded border border-term-border px-5 py-2 text-term-text transition hover:border-term-green hover:text-term-green"
+              href="#contact"
+              className="rounded border border-term-border px-6 py-2.5 font-semibold text-term-text transition hover:border-term-cyan hover:text-term-cyan"
             >
-              ls ./projects
+              Contact Me &gt;_
             </a>
           </div>
         </div>
 
-        <div className="hidden justify-self-end sm:block">
-          <div className="rounded-full border-2 border-term-green/40 p-1">
-            <Image
-              src="/img/naveen_portfolio.jpg"
-              alt="Naveen Kumar"
-              width={140}
-              height={140}
-              className="rounded-full object-cover"
-              priority
-            />
+        <TerminalWindow title="portfolio-init.sh">
+          <div className="space-y-1.5 text-sm">
+            {BOOT_LINES.map((line) => (
+              <p key={line} className="text-term-dim">
+                <span className="text-term-cyan">
+                  {line === BOOT_LINES[0] ? "$" : ">"}
+                </span>{" "}
+                {line}
+              </p>
+            ))}
+            <p className="text-term-cyan">
+              <span className="text-term-cyan">&gt;</span> Automating
+              infrastructure, one commit at a time
+              <span className="cursor-blink">_</span>
+            </p>
           </div>
-        </div>
+
+          <div className="mt-6 grid grid-cols-2 gap-4 border-t border-term-border pt-4 text-xs">
+            {STATS.map((s) => (
+              <div key={s.label}>
+                <span className="text-term-purple">{s.label}:</span>{" "}
+                <span className="text-term-text">{s.value}</span>
+              </div>
+            ))}
+          </div>
+        </TerminalWindow>
       </div>
     </section>
   );

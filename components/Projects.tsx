@@ -47,7 +47,7 @@ export default function Projects() {
   return (
     <section id="projects" className="py-20">
       <p className="text-sm text-term-dim">
-        <span className="text-term-green">$</span> ls ./projects
+        <span className="text-term-cyan">$</span> ls ./projects
       </p>
       <h2 className="mt-2 text-2xl font-semibold text-term-text">Projects</h2>
 
@@ -55,11 +55,11 @@ export default function Projects() {
         {projects.map((p) => (
           <div
             key={p.name}
-            className="rounded border border-term-border bg-term-panel p-5 transition hover:border-term-green"
+            className="rounded border border-term-border bg-term-panel p-5 transition hover:border-term-cyan"
           >
             <div className="flex items-start justify-between gap-3">
               <h3 className="text-term-text">{p.name}</h3>
-              <span className="whitespace-nowrap rounded-full border border-term-green px-2 py-0.5 text-[10px] text-term-green">
+              <span className="whitespace-nowrap rounded-full border border-term-cyan px-2 py-0.5 text-[10px] text-term-cyan">
                 {p.status}
               </span>
             </div>

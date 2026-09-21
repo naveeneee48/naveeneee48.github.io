@@ -25,7 +25,7 @@ export default function Contact() {
   return (
     <section id="contact" className="py-24">
       <p className="text-sm text-term-dim">
-        <span className="text-term-green">$</span> ./contact --send
+        <span className="text-term-cyan">$</span> ./contact --send
       </p>
       <h2 className="mt-2 text-2xl font-semibold text-term-text">Contact</h2>
       <p className="mt-4 max-w-xl text-term-dim">
@@ -39,9 +39,9 @@ export default function Contact() {
             href={l.href}
             target={l.href.startsWith("http") ? "_blank" : undefined}
             rel="noreferrer"
-            className="flex items-center justify-between rounded border border-term-border bg-term-panel px-4 py-3 text-sm text-term-dim transition hover:border-term-green hover:text-term-green"
+            className="flex items-center justify-between rounded border border-term-border bg-term-panel px-4 py-3 text-sm text-term-dim transition hover:border-term-cyan hover:text-term-cyan"
           >
-            <span className="text-term-green">./{l.label}</span>
+            <span className="text-term-cyan">./{l.label}</span>
             <span>{l.value}</span>
           </a>
         ))}

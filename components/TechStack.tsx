@@ -53,7 +53,7 @@ export default function TechStack() {
   return (
     <section id="stack" className="py-20">
       <p className="text-sm text-term-dim">
-        <span className="text-term-green">$</span> cat ./tech-stack.yaml
+        <span className="text-term-cyan">$</span> cat ./tech-stack.yaml
       </p>
       <h2 className="mt-2 text-2xl font-semibold text-term-text">
         Tech Stack
@@ -64,11 +64,11 @@ export default function TechStack() {
           <div key={p.skill}>
             <div className="flex justify-between text-sm text-term-text">
               <span>{p.skill}</span>
-              <span className="text-term-green">{p.level}%</span>
+              <span className="text-term-cyan">{p.level}%</span>
             </div>
             <div className="mt-1 h-2 rounded bg-term-border">
               <div
-                className="h-2 rounded bg-term-green"
+                className="h-2 rounded bg-term-cyan"
                 style={{ width: `${p.level}%` }}
               />
             </div>
@@ -82,7 +82,7 @@ export default function TechStack() {
             key={g.title}
             className="rounded border border-term-border bg-term-panel p-4"
           >
-            <h3 className="text-sm font-semibold text-term-green">
+            <h3 className="text-sm font-semibold text-term-cyan">
               # {g.title}
             </h3>
             <div className="mt-3 flex flex-wrap gap-2">

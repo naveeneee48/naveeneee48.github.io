@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
+import Cursor from "@/components/Cursor";
 import "./globals.css";
 
 const jetbrainsMono = JetBrains_Mono({
@@ -50,6 +51,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={jetbrainsMono.variable}>
       <body className="bg-term-bg font-mono text-term-text antialiased">
+        <Cursor />
         {children}
       </body>
     </html>

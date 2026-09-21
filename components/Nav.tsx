@@ -20,7 +20,7 @@ export default function Nav() {
       <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <a
           href="#"
-          className="whitespace-nowrap text-sm text-term-green sm:text-base"
+          className="whitespace-nowrap text-sm text-term-cyan sm:text-base"
         >
           naveen<span className="text-term-dim">@</span>devops
           <span className="text-term-dim">:~$</span>
@@ -31,7 +31,7 @@ export default function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className="whitespace-nowrap transition hover:text-term-green"
+              className="whitespace-nowrap transition hover:text-term-cyan"
             >
               ./{l.label}
             </a>
@@ -43,7 +43,7 @@ export default function Nav() {
             href="/resume/naveenkumar_devops_2025.pdf"
             target="_blank"
             rel="noreferrer"
-            className="hidden whitespace-nowrap rounded border border-term-green px-3 py-1 text-xs text-term-green transition hover:bg-term-green hover:text-term-bg sm:inline-block"
+            className="hidden whitespace-nowrap rounded border border-term-cyan px-3 py-1 text-xs text-term-cyan transition hover:bg-term-cyan hover:text-term-bg sm:inline-block"
           >
             ./resume.pdf
           </a>
@@ -53,7 +53,7 @@ export default function Nav() {
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="flex h-8 w-8 items-center justify-center rounded border border-term-border text-term-green lg:hidden"
+            className="flex h-8 w-8 items-center justify-center rounded border border-term-border text-term-cyan lg:hidden"
           >
             {open ? "✕" : "☰"}
           </button>
@@ -67,7 +67,7 @@ export default function Nav() {
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="rounded px-2 py-2 transition hover:bg-term-panel hover:text-term-green"
+              className="rounded px-2 py-2 transition hover:bg-term-panel hover:text-term-cyan"
             >
               ./{l.label}
             </a>
@@ -76,7 +76,7 @@ export default function Nav() {
             href="/resume/naveenkumar_devops_2025.pdf"
             target="_blank"
             rel="noreferrer"
-            className="mt-1 rounded border border-term-green px-2 py-2 text-center text-term-green sm:hidden"
+            className="mt-1 rounded border border-term-cyan px-2 py-2 text-center text-term-cyan sm:hidden"
           >
             ./resume.pdf
           </a>
